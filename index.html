@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Outfit Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        #outfit {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            display: inline-block;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Outfit Generator</h1>
+    <button onclick="generateOutfit()">Generate Outfit</button>
+    <div id="outfit"></div>
+
+    <script>
+        const tops = ['Basic White T-Shirt', 'Flannel Shirt', 'Graphic Tee', 'Hoodie'];
+        const bottoms = ['Baggy Cargo Pants', 'Jeans', 'Chinos', 'Shorts'];
+        const shoes = ['Hiking Boots', 'Canvas Sneakers', 'Sandals', 'Loafers'];
+        const accessories = ['Beanie', 'Cap', 'Watch', 'Bracelet'];
+
+        function getRandomItem(array) {
+            const randomIndex = Math.floor(Math.random() * array.length);
+            return array[randomIndex];
+        }
+
+        function generateOutfit() {
+            const top = getRandomItem(tops);
+            const bottom = getRandomItem(bottoms);
+            const shoe = getRandomItem(shoes);
+            const accessory = getRandomItem(accessories);
+
+            const outfit = `
+                <h2>Your Outfit</h2>
+                <p>Top: ${top}</p>
+                <p>Bottom: ${bottom}</p>
+                <p>Shoes: ${shoe}</p>
+                <p>Accessory: ${accessory}</p>
+            `;
+
+            document.getElementById('outfit').innerHTML = outfit;
+        }
+    </script>
+</body>
+</html>
